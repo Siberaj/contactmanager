@@ -1,0 +1,265 @@
+   
+body{
+    background-color:#ccc;
+    font-family: Arial;
+    margin: 0px auto;   
+}
+
+.header{
+    background-color: #ccc;
+    color: white;
+    height:80px;
+    padding : 5px;
+    margin:auto;
+    box-sizing: border-box;
+    display:flex;
+    position:relative;
+}
+
+.search-bar{
+    width: 600px;
+    height: 40px; 
+    margin-top: 20px; 
+    margin-left: 70px; 
+    border-radius: 25px; 
+    border: 1px solid #ccc;
+    padding-left: 40px;
+    font-size: 16px;
+    color:black;
+}
+
+.fa-user-circle{
+    margin-left: 345px;
+    margin-top: 20px;
+    font-size: xx-large;
+}
+
+.search-btn{
+    position:absolute;
+    top:37px;
+    left:340px;
+    border: none;
+    background-color: transparent;
+    color:black;
+}
+
+.header h4{
+    position:absolute;
+    top:20px;
+    right:70px;
+}
+.container1{
+    border: 1px solid #ccc;
+    margin-top: 0px;   
+    width: 100%;
+    height: 87%;
+    display: flex;
+}
+
+.left-side-bar{
+    background-color: #ccc;
+    padding: 20px;
+    width: 20%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.fa-user{
+    font-size:xx-large;
+    position:absolute;
+}
+
+.fa-users{
+    font-size:xx-large;
+    position:absolute;
+}
+
+.fa-sign-out{
+    font-size:x-large;
+    position:absolute;
+    top: 575px;
+    left:30px;
+}
+
+.container1 h2{
+    margin-left:40px;
+}
+
+.btn{
+      width: 75%;
+      padding: 10px;
+      margin: 10px;
+      background-color:#ccc;
+      border-bottom:1px solid #ccc;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+}
+    
+.btn:hover {
+      background-color: #0056b3;
+} 
+
+.list-of-users{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px 20px 20px 20px;
+    width: 80%;
+    height: 100%;
+    box-sizing: border-box;
+    float: right;
+}
+
+.head-table{
+    overflow-y: auto;
+    height: 530px;
+}
+
+.head-table table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-header{
+    border-bottom: 1px solid #ccc;
+    position: sticky;
+    top: 0px;
+    background-color: #ccc;
+}
+
+.row-data:hover{
+    background-color: #f1f1f1;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+.edit-btn,.delete-btn,.view-btn,.logout_btn{
+    border: none;
+    background-color: transparent;
+    margin-top: 10px;
+}
+
+.view-btn{
+    font-size:16px;
+}
+
+.view-btn:hover{
+    cursor:pointer;
+}
+
+.edit-btn:hover{
+    background-color: #ccc;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    background-color: #ccc;
+    cursor:pointer;
+}
+
+.logout_btn{
+    margin-left:25px;
+    margin-top: 27px;
+}
+
+.logout_btn:hover{
+    cursor:pointer;
+}
+
+.fa-pencil-square-o{
+    font-size:x-large;
+}
+
+.fa-trash{
+    font-size:x-large;
+}
+
+.fa-plus{
+    font-size:x-large;
+}
+
+.add-btn{
+    position:absolute;
+    top: 100px;
+    right: 50px;
+}
+
+.form-container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        height:515px;
+        overflow:auto;
+}
+
+.form-container::-webkit-scrollbar{
+    display:none;
+}
+
+.form-container h2 {
+        text-align: center;
+        margin-bottom: 24px;
+        color: #333;
+}
+
+label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #444;
+}
+
+.user {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.user:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+.addc-btn {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addc-btn:hover {
+    background-color: #0056b3;
+}
+
+.popup-c{
+    text-align: center;
+    position: absolute;
+    top: 95%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color:rgb(141, 224, 141);
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
