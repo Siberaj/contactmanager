@@ -96,27 +96,8 @@ if(!isset($_SESSION['user_id'])){
                         //echo mysqli_num_rows($select_result);                
                         if($response['status'] == 'success'){
                             foreach($response["message"] as $rows){
-                                echo "<tr class ='row-data'>
-                                    <form action = 'user.php' method = 'post'>
-                                        <input type = 'hidden' name = 'phone' value = '".$rows['phone_number']."'>
-                                        <input type = 'hidden' name = 'email' value = '".$rows['email_address']."'>
-                                        <input type = 'hidden' name = 'contact_id' value = '".$rows['contact_id']."'>
-                                        <input type = 'hidden' name = 'name1' value = '".$rows['name1']."'>
-                                        <td><button = 'submit' name = 'viewname' value = '".$rows['name1']."' class = 'view-btn'>".$rows['name1']."</button></td>
-                                        <td><button = 'submit' name = 'viewphoneno' value ='".$rows['phone_number']."' class = 'view-btn'>".$rows['phone_number']."</button></td>
-                                        <td><button = 'submit' name = 'viewmail' value = '".$rows['email_address']."' class = 'view-btn'>".$rows['email_address']." </button></td>
-                                        <td>
-                                            <button type = 'submit' name = 'editcontact' value = '".$rows['contact_id']."' class = 'edit-btn'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button>    
-                                        </td>
-                                    </form>
-                                       <td>
-                                            <form action = 'delete.php' method = 'post' class='del'>
-                                                    <input type = 'hidden' name = 'contact_id' value = '".$rows['contact_id']."'>
-                                                    <button type = 'submit' name = 'deletecontact' value = '".$rows['contact_id']."' class ='delete-btn'><i class='fa fa-trash' aria-hidden='true'></i></button>
-                                            </form> 
-                                        </td>   
-                                </tr>";
-                                }
+                               listcontact($rows);
+                            }
                         }
                         else{
                             echo "<h2>".$response['message']."</h2>";
@@ -145,26 +126,9 @@ if(!isset($_SESSION['user_id'])){
                             $response = $res->execute();
                             if($response['status'] == 'success'){
                                 foreach($response["message"] as $row){
-                                    echo "<tr class ='row-data'>";
-                                    echo "<td> 
-                                            <form action = 'user.php' method = 'post' >
-                                                <input type = 'hidden' name = 'group_id' value = '".$row['group_id']."'>
-                                                <input type = 'hidden' name = 'group_name' value = '".$row['group_name']."'>
-                                                <button type = 'submit' name = 'viewgroupmember' value = '' class ='view-btn' >".$row['group_name']."</button>
-                                        </td>";
-                                    echo "<td>
-                                                <button type = 'submit' name = 'editgroup' value = '' class = 'edit-btn'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button>
-                                            </form>
-                                            </td>
-                                          <td> <form action = 'delete.php' method = 'post'> 
-                                                   <input type = 'hidden' name = 'group_id' value = '".$row['group_id']."'>
-                                                    <button type = 'submit' name = 'deletegroup' value = '' class ='delete-btn'><i class='fa fa-trash' aria-hidden='true'></i></button>
-                                            </form>    
-                                        </td>";
-                                    echo "</tr>";
+                                    listgroup($row);
                                 }
-                                }
-                                else{
+                            } else{
                                     echo "<h2>".$response['message']."</h2>";
                                 }?>
                         </table>
@@ -202,20 +166,8 @@ if(!isset($_SESSION['user_id'])){
                             $response = $res->execute();                            
                         //echo mysqli_num_rows($select_result);
                         if($response['status']=='success'){                
-                            foreach($response['message'] as $rows){?>
-                                <?php
-                                echo "<tr class ='row-data'>
-                                    <td>".$rows['name1']."</td>
-                                    <td>".$rows['phone_number']."</td>
-                                    <td>".$rows['email_address']."</td>
-                                    <td>
-                                        <form action = 'delete.php' method = 'post'>
-                                            <input type = 'hidden' name = 'contact_id' value = ".$rows['contact_id'].">
-                                            <input type = 'hidden' name = 'group_id' value = ".$rows['group_id'].">
-                                            <button type = 'submit' name = 'deletegroupmember' value = '' class ='delete-btn'><i class='fa fa-trash' aria-hidden='true'></i></button>
-                                        </form>    
-                                    </td>
-                                </tr>";
+                            foreach($response['message'] as $rows){
+                                listgroupmember($rows);
                             }
                         }
                         else{
@@ -250,19 +202,7 @@ if(!isset($_SESSION['user_id'])){
 
                 ?>
                 <div class='form-container'>
-                        <form action='insert.php' method='post'>
-                            <label>Select Contact:</label>
-                            <select name='contact_id' class = 'user' required>
-                                <option value=''>-- Select Contact --</option>
-                                <?php foreach ($response['message'] as $contact) { ?>
-                                    <option value="<?= $contact['contact_id'] ?>"><?= htmlspecialchars($contact['full_name']) ?></option>
-                                <?php } ?>
-                            </select><br>
-                            <input type='hidden' name='contactid' value='<?= $contact['contact_id'] ?>'>
-                            <input type='hidden' name='group_id' value='<?= $group_id ?>'>
-                            <input type='hidden' name='group_name' value='<?= $group_name ?>'>
-                            <input type='submit' name='add_member' value='Add to Group' class = 'addc-btn'>
-                        </form>
+                       <?php addmemberform($response['message'], $group_id, $group_name);?>
                 </div>
              
             <?php }?>
@@ -392,31 +332,9 @@ if(!isset($_SESSION['user_id'])){
                             $response = $res->execute();
 
                         //echo mysqli_num_rows($select_result);                
-                            foreach($response['message'] as $rows){?>
-                                    <?php
-                                    echo "<tr class ='row-data'>
-                                        <form action = 'user.php' method = 'post'>
-                                            <input type = 'hidden' name = 'phone' value = '".$rows['phone_number']."'>
-                                            <input type = 'hidden' name = 'email' value = '".$rows['email_address']."'>
-                                            <input type = 'hidden' name = 'contact_id' value = '".$rows['contact_id']."'>
-                                            <input type = 'hidden' name = 'name1' value = '".$rows['name1']."'>
-                                            <td><button = 'submit' name = 'viewname' value = '".$rows['name1']."' class = 'view-btn'>".$rows['name1']."</button></td>
-                                            <td><button = 'submit' name = 'viewphoneno' value ='".$rows['phone_number']."' class = 'view-btn'>".$rows['phone_number']."</button></td>
-                                            <td><button = 'submit' name = 'viewmail' value = '".$rows['email_address']."' class = 'view-btn'>".$rows['email_address']." </button></td>
-                                            <td>
-                                                <button type = 'submit' name = 'editcontact' value = '".$rows['contact_id']."' class = 'edit-btn'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button>    
-                                            </td>
-                                        </form>
-                                        <td>
-                                                <form action = 'delete.php' method = 'post' class='del'>
-                                                        <input type = 'hidden' name = 'contact_id' value = '".$rows['contact_id']."'>
-                                                        <button type = 'submit' name = 'deletecontact' value = '".$rows['contact_id']."' class ='delete-btn'><i class='fa fa-trash' aria-hidden='true'></i></button>
-                                                </form> 
-                                            </td>   
-                                    </tr>";
-                            ?>
-                           
-                    <?php  }
+                        foreach($response['message'] as $rows){
+                            listcontact($rows);     
+                        }
                     }
                     ?>
                     </table>

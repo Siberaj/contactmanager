@@ -1,29 +1,22 @@
 <?php
 ob_start();
 session_start();
-require_once('config/config.php');
-include('curl.php');
+require_once('searchHandler.php');
 
+if (isset($_POST['search'])) {
+    $searchTerm = $_POST['search1'];
+    $userId = $_SESSION['user_id'];
 
-if(isset($_POST['search']))
-{
-    $search = $_POST['search1'].'%';
-    $user_id = $_SESSION['user_id'];
-    //echo $search;
-    // to search for contacts
-    $postLoad = json_encode(["action"=>"searchcontact","search"=>$search,"user_id"=>$user_id]);
-        
-    $res = new curl_function();
-    $res->setOptions($postLoad);
-    $response = $res->execute();
+    $handler = new SearchHandler();
+    $response = $handler->searchContact($searchTerm, $userId);
 
-    if($response['status']=='success'){
+    if ($response['status'] === 'success') {
         $_SESSION['search'] = true;
         $_SESSION['contact_id'] = $response['contact_id'];
-        Header("Location:user.php");
+        header("Location:user.php");
         exit();
-    }else{
-       echo "<h2>".$response['message']."</h2>";
+    } else {
+        echo "<h2>{$response['message']}</h2>";
     }
 }
 

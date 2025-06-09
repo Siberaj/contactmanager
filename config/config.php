@@ -1,15 +1,5 @@
 <?php
-    //to connect to database
-    // $host = 'localhost';
-    // $dbName = 'contact_manager';
-    // $port = '3307'; 
-    // $user = 'root';
-    // $userPassword = '';
-
-    // $dsn = "mysql:host=$host;dbname=$dbName;port=$port";
-    // $dbConnection = new PDO($dsn,$user,$userPassword);
-    // $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    
     class dbConnection{
         private $host = 'localhost';
         private $dbName = 'contact_manager';

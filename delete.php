@@ -1,65 +1,49 @@
 <?php
 ob_start();
 session_start();
-include('curl.php');
-//to delete contact
-if(isset($_POST['deletecontact'])){
+require_once('DeleteHandler.php');
 
-    $contact_id = $_POST['contact_id'];
-    $postLoad = json_encode(["userid"=>$_SESSION['user_id'],"action"=>"deletecontact","contact_id"=>$contact_id]);
+$handler = new DeleteHandler();
 
-    $res = new curl_function();
-    $res->setOptions($postLoad);
-    $response = $res->execute();
+// Delete contact
+if (isset($_POST['deletecontact'])) {
+    $response = $handler->deleteContact($_POST['contact_id']);
 
-    if($response['status'] == 'success'){
+    if ($response['status'] === 'success') {
         $_SESSION['popup'] = 'Contact deleted successfully';
         header('Location:user.php');
         exit;
-    }
-    else{
-        echo "<h2>".$response['message']."</h2>";
+    } else {
+        echo "<h2>{$response['message']}</h2>";
     }
 }
 
-// to delete group
-if(isset($_POST['deletegroup'])){
-    $group_id = $_POST['group_id'];
-    $postLoad = json_encode(["user_id"=>$_SESSION['user_id'],"action"=>"deletegroup","group_id"=>$group_id]);
+// Delete group
+if (isset($_POST['deletegroup'])) {
+    $response = $handler->deleteGroup($_POST['group_id']);
 
-    $res = new curl_function();
-    $res->setOptions($postLoad);
-    $response = $res->execute();
-    echo "<h2>".$response."hii</h2>";
-    if($response['status'] == 'success'){
+    if ($response['status'] === 'success') {
         $_SESSION['popup'] = 'Group deleted successfully';
         header('Location:user.php');
         exit;
-    }
-    else{
-        echo "<h2>".$response['message']."</h2>";
+    } else {
+        echo "<h2>{$response['message']}</h2>";
     }
 }
 
-//to remove member in a group
-if(isset($_POST['deletegroupmember'])){
-    $contact_id = $_POST['contact_id'];
-    $group_id = $_POST['group_id'];
-    $postLoad = json_encode(["user_id"=>$_SESSION['user_id'],"action"=>"deletemember","contact_id"=>$contact_id,"group_id"=>$group_id]);
+// Remove group member
+if (isset($_POST['deletegroupmember'])) {
+    $response = $handler->removeGroupMember($_POST['contact_id'], $_POST['group_id']);
 
-    $res = new curl_function();
-    $res->setOptions($postLoad);
-    $response = $res->execute();
-    
-    if($response['status'] == 'success'){
+    if ($response['status'] === 'success') {
         $_SESSION['popup'] = 'Member removed successfully';
         header('Location:user.php');
         exit;
-    }
-    else{
-        echo "<h2>".$response['message']."</h2>";
+    } else {
+        echo "<h2>{$response['message']}</h2>";
     }
 }
 
 ob_end_flush();
+
 ?>

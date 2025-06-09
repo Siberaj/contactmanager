@@ -27,23 +27,5 @@ class curl_function{
     }
 }
 
-
-// function curlFunction($postLoad) {
-//     $url = 'http://localhost/contact/server.php';
-
-//     $curlStart = curl_init();   
-//     curl_setopt($curlStart, CURLOPT_POST, true);
-//     curl_setopt($curlStart, CURLOPT_URL, $url);
-//     curl_setopt($curlStart, CURLOPT_POSTFIELDS, $postLoad);
-//     curl_setopt($curlStart, CURLOPT_RETURNTRANSFER, true);
-
-//     $response = curl_exec($curlStart); 
-//     curl_close($curlStart);
-
-//     $decoded = json_decode($response, true);
-
-//     return $decoded;
-// }
-
 ob_end_flush();
 ?>
