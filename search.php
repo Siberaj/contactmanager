@@ -13,7 +13,7 @@ if (isset($_POST['search'])) {
     if ($response['status'] === 'success') {
         $_SESSION['search'] = true;
         $_SESSION['contact_id'] = $response['contact_id'];
-        header("Location:user.php");
+        header("Location:index.php");
         exit();
     } else {
         echo "<h2>{$response['message']}</h2>";

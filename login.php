@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
             $_SESSION['username'] = $response['message'][0]['name'];
             $_SESSION['user_id'] = $response['message'][0]['user_id'];
             $_SESSION['show_contacts'] = true;
-            header('Location: user.php');
+            header('Location: index.php');
             exit();
         } 
         else {

@@ -50,7 +50,7 @@ if(!isset($_SESSION['user_id'])){
     <div class = 'container1'>
         <!--left side bar--> 
         <div class = 'left-side-bar'>
-            <form action = 'user.php'  method = 'post'>
+            <form action = 'index.php'  method = 'post'>
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <h2>contacts</h2>
                 <input type='hidden' name = 'user_id' value = '<?php echo $_SESSION['user_id']; ?>'>
@@ -146,7 +146,7 @@ if(!isset($_SESSION['user_id'])){
                 <div class = 'head-table'>
                     <h4><?= $groupname?></h4>
 
-                    <form action = 'user.php' method = 'post'>
+                    <form action = 'index.php' method = 'post'>
                         <input type = 'hidden' name = 'group_id' value = '<?php echo $group_id; ?>' >
                         <input type = 'hidden' name = 'group_name' value =' <?php echo $groupname; ?>' >
                         <button type = 'submit' name = 'addm' value = '' class = 'add-btn'><i class="fa fa-plus" aria-hidden="true"></i></button>

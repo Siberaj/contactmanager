@@ -44,7 +44,7 @@ function groupform($data,$group_id){
 
 function listcontact($rows){
      echo "<tr class ='row-data'>
-                <form action = 'user.php' method = 'post'>
+                <form action = 'index.php' method = 'post'>
                     <input type = 'hidden' name = 'phone' value = '".$rows['phone_number']."'>
                     <input type = 'hidden' name = 'email' value = '".$rows['email_address']."'>
                     <input type = 'hidden' name = 'contact_id' value = '".$rows['contact_id']."'>
@@ -68,7 +68,7 @@ function listcontact($rows){
 function listgroup($row){
     echo "<tr class ='row-data'>";
     echo "<td> 
-            <form action = 'user.php' method = 'post' >
+            <form action = 'index.php' method = 'post' >
                 <input type = 'hidden' name = 'group_id' value = '".$row['group_id']."'>
                 <input type = 'hidden' name = 'group_name' value = '".$row['group_name']."'>
                 <button type = 'submit' name = 'viewgroupmember' value = '' class ='view-btn' >".$row['group_name']."</button>

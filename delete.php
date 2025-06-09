@@ -11,11 +11,11 @@ if (isset($_POST['deletecontact'])) {
 
     if ($response['status'] === 'success') {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
     } else {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
         // echo "<h2>{$response['message']}</h2>";
     }
@@ -27,11 +27,11 @@ if (isset($_POST['deletegroup'])) {
 
     if ($response['status'] === 'success') {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
     } else {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
         // echo "<h2>{$response['message']}</h2>";
     }
@@ -43,11 +43,11 @@ if (isset($_POST['deletegroupmember'])) {
 
     if ($response['status'] === 'success') {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
     } else {
          $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
         // echo "<h2>{$response['message']}</h2>";
     }

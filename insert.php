@@ -10,11 +10,11 @@ if (isset($_POST['submit_contact_form'])) {
 
     if ($response['status'] == 'success') {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
     } else {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
         // echo "<h2>{$response['message']}</h2>";
     }
@@ -26,11 +26,11 @@ if (isset($_POST['addgv'])) {
 
     if ($response['status'] == 'success') {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
     } else {
          $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
         // echo "<h2>{$response['message']}</h2>";
     }
@@ -42,11 +42,11 @@ if (isset($_POST['add_member'])) {
 
     if ($response['status'] == 'success') {
         $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
     } else {
          $_SESSION['popup'] = $response['message'];
-        header('Location:user.php');
+        header('Location:index.php');
         exit;
         // echo "<h2>{$response['message']}</h2>";
     }
