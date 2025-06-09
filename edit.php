@@ -10,11 +10,14 @@ if (isset($_POST['submit_edit_form'])) {
     $response = $handler->updateContact($_POST);
 
     if ($response['status'] === 'success') {
-        $_SESSION['popup'] = 'Contact updated successfully';
+        $_SESSION['popup'] = $response['message'];
         header('Location:user.php');
         exit;
     } else {
-        echo "<h2>{$response['message']}</h2>";
+        $_SESSION['popup'] = $response['message'];
+        header('Location:user.php');
+        exit;
+        // echo "<h2>{$response['message']}</h2>";
     }
 }
 
@@ -23,11 +26,14 @@ if (isset($_POST['update_group'])) {
     $response = $handler->updateGroup($_POST);
 
     if ($response['status'] === 'success') {
-        $_SESSION['popup'] = 'Group updated successfully';
+        $_SESSION['popup'] = $response['message'];
         header('Location:user.php');
         exit;
     } else {
-        echo "<h2>{$response['message']}</h2>";
+        $_SESSION['popup'] = $response['message'];
+        header('Location:user.php');
+        exit;
+        // echo "<h2>{$response['message']}</h2>";
     }
 }
 

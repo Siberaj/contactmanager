@@ -25,7 +25,7 @@ switch($data['action']){
                             $result_query = $dbConnection->prepare($delete_query);
                             $result_query->bindParam(':contact_id',$data['contact_id']);
                             if ($result_query->execute()) {
-                                echo json_encode(["status" => "success", "message" => "Contact deleted"]);
+                                echo json_encode(["status" => "success", "message" => "Contact deleted successfully"]);
                             } else {
                                 echo json_encode(["status" => "error", "message" => "Error deleting contact"]);
                             }
@@ -48,7 +48,7 @@ switch($data['action']){
                             $result_query = $dbConnection->prepare($delete_member_query);
                             $result_query->bindParam(':group_id', $data['group_id']);
                             if ($result_query->execute()) {
-                                echo json_encode(["status" => "success", "message" => "Group deleted"]);
+                                echo json_encode(["status" => "success", "message" => "Group deleted successfully"]);
                             } else {
                                 echo json_encode(["status" => "error", "message" => "Error deleting group"]);
                             }
@@ -67,7 +67,7 @@ switch($data['action']){
                         $result_query->bindParam(':contact_id', $data['contact_id']);
                         $result_query->bindParam(':group_id', $data['group_id']);
                         if ($result_query->execute()) {
-                            echo json_encode(["status" => "success", "message" => "Group member removed"]);
+                            echo json_encode(["status" => "success", "message" => "Group member removed successfully"]);
                         } else {
                             echo json_encode(["status" => "error", "message" => "Error removing group member"]);
                         }
@@ -88,7 +88,7 @@ switch($data['action']){
                         $result_query->bindParam(':relationship', $data['relationship']);
                         $result_query->bindParam(':contact_id', $data['contactId']); 
                         if ($result_query->execute()) {
-                            echo json_encode(["status" => "success", "message" => "contact updated"]);
+                            echo json_encode(["status" => "success", "message" => "contact updated successfully"]);
                         } else {
                             echo json_encode(["status" => "error", "message" => "Error updating contact"]);
                         }                        
@@ -104,7 +104,7 @@ switch($data['action']){
                         $result_query->bindParam(':group_id', $data['groupId']);
 
                         if ($result_query->execute()) {
-                            echo json_encode(["status" => "success", "message" => "Group updated"]);
+                            echo json_encode(["status" => "success", "message" => "Group updated successfully"]);
                         } else {
                             echo json_encode(["status" => "error", "message" => "Error updating group"]);
                         }
@@ -180,7 +180,7 @@ switch($data['action']){
                     $result_query->bindParam(':phone_id', $phone_id);
                     $result_query->bindParam(':email_id', $email_id);
                     if ($result_query->execute()) {
-                        echo json_encode(["status" => "success", "message" => "Contact created"]);
+                        echo json_encode(["status" => "success", "message" => "Contact created successfully"]);
                     } else {
                         echo json_encode(["status" => "error", "message" => "Error creating contact"]);
                     }
@@ -193,7 +193,7 @@ switch($data['action']){
                     $result_query->bindParam(':user_id', $data['user_id']);
                     $result_query->bindParam(':group_name', $data['group_name']);
                     if ($result_query->execute()) {
-                        echo json_encode(["status" => "success", "message" => "Group created"]);
+                        echo json_encode(["status" => "success", "message" => "Group created successfully"]);
                     } else {
                         echo json_encode(["status" => "error", "message" => "Error creating group"]);
                     }
@@ -218,7 +218,7 @@ switch($data['action']){
                         $result_query->bindParam(':contact_id', $data['contact_id']);
                         $result_query->bindParam(':group_id', $data['group_id']);
                         if ($result_query->execute()) {
-                            echo json_encode(["status" => "success", "message" => "Group member added"]);
+                            echo json_encode(["status" => "success", "message" => "Group member added successfully"]);
                         } else {
                             echo json_encode(["status" => "error", "message" => "Error adding group member"]);
                         }

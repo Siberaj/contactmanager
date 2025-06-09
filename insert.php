@@ -9,11 +9,14 @@ if (isset($_POST['submit_contact_form'])) {
     $response = $handler->addContact($_POST);
 
     if ($response['status'] == 'success') {
-        $_SESSION['popup'] = 'Contact added successfully';
+        $_SESSION['popup'] = $response['message'];
         header('Location:user.php');
         exit;
     } else {
-        echo "<h2>{$response['message']}</h2>";
+        $_SESSION['popup'] = $response['message'];
+        header('Location:user.php');
+        exit;
+        // echo "<h2>{$response['message']}</h2>";
     }
 }
 
@@ -22,11 +25,14 @@ if (isset($_POST['addgv'])) {
     $response = $handler->addGroup($_POST);
 
     if ($response['status'] == 'success') {
-        $_SESSION['popup'] = 'Group created successfully';
+        $_SESSION['popup'] = $response['message'];
         header('Location:user.php');
         exit;
     } else {
-        echo "<h2>{$response['message']}</h2>";
+         $_SESSION['popup'] = $response['message'];
+        header('Location:user.php');
+        exit;
+        // echo "<h2>{$response['message']}</h2>";
     }
 }
 
@@ -35,11 +41,14 @@ if (isset($_POST['add_member'])) {
     $response = $handler->addMember($_POST);
 
     if ($response['status'] == 'success') {
-        $_SESSION['popup'] = 'Member added successfully';
+        $_SESSION['popup'] = $response['message'];
         header('Location:user.php');
         exit;
     } else {
-        echo "<h2>{$response['message']}</h2>";
+         $_SESSION['popup'] = $response['message'];
+        header('Location:user.php');
+        exit;
+        // echo "<h2>{$response['message']}</h2>";
     }
 }
 

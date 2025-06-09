@@ -10,11 +10,14 @@ if (isset($_POST['deletecontact'])) {
     $response = $handler->deleteContact($_POST['contact_id']);
 
     if ($response['status'] === 'success') {
-        $_SESSION['popup'] = 'Contact deleted successfully';
+        $_SESSION['popup'] = $response['message'];
         header('Location:user.php');
         exit;
     } else {
-        echo "<h2>{$response['message']}</h2>";
+        $_SESSION['popup'] = $response['message'];
+        header('Location:user.php');
+        exit;
+        // echo "<h2>{$response['message']}</h2>";
     }
 }
 
@@ -23,11 +26,14 @@ if (isset($_POST['deletegroup'])) {
     $response = $handler->deleteGroup($_POST['group_id']);
 
     if ($response['status'] === 'success') {
-        $_SESSION['popup'] = 'Group deleted successfully';
+        $_SESSION['popup'] = $response['message'];
         header('Location:user.php');
         exit;
     } else {
-        echo "<h2>{$response['message']}</h2>";
+        $_SESSION['popup'] = $response['message'];
+        header('Location:user.php');
+        exit;
+        // echo "<h2>{$response['message']}</h2>";
     }
 }
 
@@ -36,11 +42,14 @@ if (isset($_POST['deletegroupmember'])) {
     $response = $handler->removeGroupMember($_POST['contact_id'], $_POST['group_id']);
 
     if ($response['status'] === 'success') {
-        $_SESSION['popup'] = 'Member removed successfully';
+        $_SESSION['popup'] = $response['message'];
         header('Location:user.php');
         exit;
     } else {
-        echo "<h2>{$response['message']}</h2>";
+         $_SESSION['popup'] = $response['message'];
+        header('Location:user.php');
+        exit;
+        // echo "<h2>{$response['message']}</h2>";
     }
 }
 
