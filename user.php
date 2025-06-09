@@ -54,15 +54,15 @@ if(!isset($_SESSION['user_id'])){
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <h2>contacts</h2>
                 <input type='hidden' name = 'user_id' value = '<?php echo $_SESSION['user_id']; ?>'>
-                <input type = 'submit' name = 'listcontact' value = 'listscontact' class='btn'>
+                <input type = 'submit' name = 'listcontact' value = 'contact' class='btn'>
                 <input type = 'hidden' name = 'addc' value = '<?php echo $_SESSION['user_id']; ?>'>
-                <input type = 'submit' name = 'addcon' value = 'addcontact' class='btn'>
+                <input type = 'submit' name = 'addcon' value = 'add' class='btn'>
             <hr>
                 <i class="fa fa-users" aria-hidden = "true" ></i>                
                 <h2>Groups</h2>
                 <input type ='hidden' name = 'user_id' value = '<?php echo $_SESSION['user_id']; ?>'>
-                <input type = 'submit' name = 'listgroup' value = 'listsgroup' class='btn'>
-                <input type = 'submit' name = 'addg' value = 'addgroup' class='btn'>
+                <input type = 'submit' name = 'listgroup' value = 'group' class='btn'>
+                <input type = 'submit' name = 'addg' value = 'add' class='btn'>
 
             <hr>
                 <button type = 'submit' name = 'logout' class = 'logout_btn'><i class="fa fa-sign-out" aria-hidden="true"></i><h4>Logout</h4></button>      
